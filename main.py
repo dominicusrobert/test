@@ -56,7 +56,7 @@ def handle_case_queens_attack():
         else: obstacles[input3] = 1
 
     result = check_queens_attack(total_row_and_column, queens_row_position, queens_column_position, obstacles)
-    print(result)
+    print('Total square(s) that the Queen can attack: ', result)
 
 
 if __name__ == '__main__':
