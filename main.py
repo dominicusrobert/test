@@ -21,7 +21,7 @@ def handle_case_fraudulent():
 
     total_data = int(input1.split(' ')[0])
     number_of_trailing_days = int(input1.split(' ')[1])
-    expenditures = list(map(int, input2.split(', ')))
+    expenditures = list(map(int, input2.split(' ')))
 
     is_valid_constraint = validate_constraint_fradulent_activity(total_data, number_of_trailing_days, expenditures)
     if not is_valid_constraint: return

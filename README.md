@@ -33,7 +33,7 @@ Question & user's input example:
 ```
     Please insert expenditure: 
 ```
-**Example Answer 3:** `1, 2, 3, 4, 4`
+**Example Answer 3:** `1 2 3 4 4`
 
 ***Then the result will show like this:**
 ```

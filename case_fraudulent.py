@@ -30,7 +30,7 @@ def validate_second_input_fradulent_activity(input2):
         print('Please insert the valid format, example: \'2 3 4 2 3 6 8 4 5\'')
         return False
 
-    arr_input_2 = input2.split(', ')
+    arr_input_2 = input2.split(' ')
     for expenditure in arr_input_2:
         if not expenditure.isnumeric():
             print('[ERROR] Expenditure component is not a number')
