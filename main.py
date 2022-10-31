@@ -3,7 +3,11 @@ from case_fraudulent import \
     validate_first_input_fradulent_activity, \
     validate_second_input_fradulent_activity, \
     validate_constraint_fradulent_activity
-from case_queens_attack import check_queens_attack
+from case_queens_attack import \
+    check_queens_attack, \
+    validate_first_input_queens_movement, \
+    validate_second_input_queens_movement, \
+    validate_third_input_queens_movement
 
 
 def handle_case_fraudulent():
@@ -27,10 +31,29 @@ def handle_case_fraudulent():
 
 
 def handle_case_queens_attack():
-    total_row_and_column = 5
-    queens_row_position = 4
-    queens_column_position = 3
-    obstacles = {'5 5': 1, '4 2': 1, '2 3': 1}
+    input1 = input("Please insert number of rows and columns in the board & total of obstacles: ")
+    is_valid_input1 = validate_first_input_queens_movement(input1)
+    if not is_valid_input1: return
+
+    input2 = input("Please insert queen's position (row & column): ")
+    is_valid_input2 = validate_second_input_queens_movement(input2)
+    if not is_valid_input2: return
+
+    total_row_and_column = int(input1.split(' ')[0])
+
+    queens_row_position = int(input2.split(' ')[0])
+    queens_column_position = int(input2.split(' ')[1])
+
+    obstacles = {}
+
+    should_input_obstacles = True
+    while(should_input_obstacles):
+        input3 = input("Please insert obstacle's position (row & column) *double enter to insert last obstacles: ")
+        is_valid_input3 = validate_third_input_queens_movement(input3, input2)
+        if not is_valid_input3: return
+
+        if input3 == "": should_input_obstacles = False
+        else: obstacles[input3] = 1
 
     result = check_queens_attack(total_row_and_column, queens_row_position, queens_column_position, obstacles)
     print(result)
